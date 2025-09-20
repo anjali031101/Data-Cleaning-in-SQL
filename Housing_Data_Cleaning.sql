@@ -145,40 +145,7 @@ From Practice.dbo.[Nashville Housing Data for Data Cleaning]
 
 
 
---------------------------------------------------------------------------------------------------------------------------
-
-
--- Change Y and N to Yes and No in "Sold as Vacant" field
-
-
-Select Distinct(SoldAsVacant), Count(SoldAsVacant)
-From Practice.dbo.[Nashville Housing Data for Data Cleaning]
-Group by SoldAsVacant
-order by 2
-
-
-
-
-Select SoldAsVacant
-, CASE When SoldAsVacant = 'Y' THEN 'Yes'
-	   When SoldAsVacant = 'N' THEN 'No'
-	   ELSE SoldAsVacant
-	   END
-From Practice.dbo.[Nashville Housing Data for Data Cleaning]
-
-
-Update Practice.dbo.[Nashville Housing Data for Data Cleaning]
-SET SoldAsVacant = CASE When SoldAsVacant = 'Y' THEN 'Yes'
-	   When SoldAsVacant = 'N' THEN 'No'
-	   ELSE SoldAsVacant
-	   END
-
-
-
-
-
-
------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -- Remove Duplicates
 
@@ -222,6 +189,7 @@ From Practice.dbo.[Nashville Housing Data for Data Cleaning]
 
 ALTER TABLE Practice.dbo.[Nashville Housing Data for Data Cleaning]
 DROP COLUMN OwnerAddress, TaxDistrict, PropertyAddress, SaleDate
+
 
 
 
